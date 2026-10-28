@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7fc">
+  <title>Luma — Un espacio para pensar</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%232e695d'/%3E%3Cpath d='M20 8L23 17L32 20L23 23L20 32L17 23L8 20L17 17Z' fill='%23fff9df'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/assets/luma.css">
+  <script type="module" src="/assets/luma-app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Ir al contenido</a>
+  <aside class="sidebar">
+    <a class="brand" href="#inicio" aria-label="Luma, inicio"><span class="brand-mark">✦</span>luma<span class="brand-dot">.</span></a>
+    <div class="sidebar-label">EL MUNDO DE LAS PREGUNTAS</div>
+    <nav aria-label="Navegación principal">
+      <button class="nav-item selected" id="home-nav"><span aria-hidden="true">⌂</span><span class="nav-label">Inicio</span></button>
+      <button class="nav-item" id="explore-nav"><span aria-hidden="true">◈</span><span class="nav-label">Explorar</span></button>
+      <button class="nav-item" id="family-nav"><span aria-hidden="true">♡</span><span class="nav-label">Familias</span></button>
+      <button class="nav-item" id="method-nav"><span aria-hidden="true">✧</span><span class="nav-label">Cómo funciona</span></button>
+    </nav>
+    <div class="learning-path"><span class="sidebar-label">TU EXPEDICIÓN</span><div class="path-topic"><span class="topic-icon">½</span><div><strong id="path-title">Tu próxima aventura</strong><small id="path-meta">Razonamiento · 8–11 años</small></div></div><ol id="lesson-list"></ol></div>
+    <div class="sidebar-note"><span aria-hidden="true">✳</span><p>Las buenas preguntas<br>abren grandes caminos.</p><small>A tu ritmo. Siempre.</small></div>
+  </aside>
+  <main id="main-content" tabindex="-1">
+    <header class="topbar"><span id="breadcrumb">Mi espacio <span class="crumb">/</span> Inicio</span><div><button class="quiet-button" id="sound-button" aria-pressed="false">◖ Leer en voz alta</button><button class="avatar-button" id="settings-button" aria-label="Opciones para adultos">L</button></div></header>
+    <section id="home-view" aria-labelledby="home-title">
+      <div class="home-hero">
+        <div class="hero-copy"><div class="eyebrow"><span aria-hidden="true">✦</span> EXPLORADORES DE IDEAS · 8–11 AÑOS</div><h1 id="home-title" tabindex="-1">¿Y si lo<br>descubres <em>tú?</em></h1><p>Hay un mundo lleno de preguntas.<br>Prueba, imagina y encuentra tu propio camino.</p><button class="primary-button" id="hero-start">Elegir mi aventura <span>→</span></button><div class="hero-facts"><span>✧ A tu ritmo</span><span>♡ Cada idea cuenta</span></div></div>
+        <div class="hero-companion"><div class="companion-bubble"><span class="bubble-label">HOLA, SOY LUMA</span><p id="luma-greeting" aria-live="polite">¿Listo para una buena pregunta?</p></div><button id="greet-luma" class="mascot-button" aria-label="Saludar a Luma"><span class="mascot-ground" aria-hidden="true"></span><span class="luma-character hero-luma" aria-hidden="true"><span></span><i></i><b class="cheek cheek-left"></b><b class="cheek cheek-right"></b><b class="mascot-arm arm-left"></b><b class="mascot-arm arm-right"></b></span><span class="mascot-caption">Toca para saludar</span></button><span class="companion-spark spark-one" aria-hidden="true">✦</span><span class="companion-spark spark-two" aria-hidden="true">✧</span><span class="companion-orbit" aria-hidden="true"></span></div>
+      </div>
+      <div id="continue-card" class="continue-card" hidden><span class="continue-icon" aria-hidden="true">↳</span><div><strong id="continue-title"></strong><p id="continue-description"></p></div><button id="continue-button" class="secondary-button">Continuar →</button></div>
+      <section id="home-pending" class="pending-adventures" aria-label="Aventuras guardadas pendientes" hidden></section>
+      <div class="section-title"><div><div class="eyebrow">TU MAPA DE DESCUBRIMIENTOS</div><h2>Tres islas. Mil preguntas.</h2></div><span id="catalog-count" class="catalog-count"></span></div>
+      <div class="island-map"><span class="map-route" aria-hidden="true"></span><div id="mission-grid" class="mission-grid"></div></div>
+      <section class="method-strip" aria-label="Nuestra forma de aprender"><div class="method-intro"><span aria-hidden="true">✧</span><h3>Tu superpoder:<br>hacerte preguntas.</h3></div><div><span class="method-number">01</span><strong>Prueba una idea</strong><p>No necesitas tenerlo claro desde el principio.</p></div><div><span class="method-number">02</span><strong>Busca el porqué</strong><p>Luma te hace preguntas y te acompaña con pistas.</p></div><div><span class="method-number">03</span><strong>Comprueba y revisa</strong><p>Explica tu idea y pruébala en otra situación.</p></div></section>
+      <div class="home-family"><span>♡ Un pequeño viaje que podéis compartir.</span><button id="home-family-button">Entrar al espacio de familias ↗</button></div>
+    </section>
+    <section id="explore-view" hidden aria-labelledby="explore-title">
+      <div class="welcome"><div><div class="eyebrow">TU MAPA DE DESCUBRIMIENTOS</div><h1 id="explore-title" tabindex="-1">¿A qué isla viajamos?</h1><p>Elige una aventura o sigue donde lo dejaste.</p></div></div>
+      <div id="explore-continue-card" class="continue-card" hidden><span class="continue-icon" aria-hidden="true">↳</span><div><strong id="explore-continue-title"></strong><p id="explore-continue-description"></p></div><button id="explore-continue-button" class="secondary-button">Continuar mi aventura →</button></div>
+      <p id="explore-count" class="explore-count"></p>
+      <div class="island-map"><span class="map-route" aria-hidden="true"></span><div id="explore-grid" class="mission-grid"></div></div>
+      <p class="explore-note">✧ Puedes elegir cualquier isla. No hay prisa.</p>
+    </section>
+    <section id="learn-view" hidden>
+    <section class="welcome"><div><div class="eyebrow">TU SIGUIENTE DESCUBRIMIENTO</div><h1 id="learn-title" tabindex="-1">Ponte el gorro de explorador.</h1><p>Observa, prueba y cuéntame cómo lo ves.</p></div><div class="welcome-art" aria-hidden="true"><div class="orbit"></div><div class="art-circle">?</div><span class="little-star">✦</span><span class="little-dot"></span></div></section>
+    <div class="session-heading"><div><span class="pill" id="mission-pill">✦ Comparar fracciones</span><span class="step-label" id="step-label">Exploración 1 de 5</span></div><div class="session-progress" id="session-progress" role="progressbar" aria-label="Progreso de la exploración" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"></div></div>
+    <div id="thinking-steps" class="thinking-steps" aria-label="Pasos de esta situación"><span data-thinking="choose">1 · Elige</span><span data-thinking="explain">2 · Cuéntame por qué</span><span data-thinking="check">3 · Comprueba</span></div><p id="adaptation-note" class="adaptation-note"></p>
+    <div class="workspace" id="exercise-workspace">
+      <section class="problem-card" aria-labelledby="problem-title">
+        <div class="problem-topline"><span class="eyebrow" id="problem-category">OBSERVA Y COMPARA</span><span class="book-symbol" aria-hidden="true">▤</span></div>
+        <h2 id="problem-title" tabindex="-1">Un trocito de pizza</h2><p class="problem-context" id="problem-context"></p>
+        <div class="fraction-scene" aria-hidden="true"><div class="scene-dots"></div><span class="scene-spark">✦</span><div class="scene-pizza"><div></div><i></i><b></b><em></em></div><span class="scene-small">✧</span></div>
+        <div id="sequence-display" class="sequence-display" aria-label="Secuencia de números" hidden></div>
+        <h3 id="problem-prompt"></h3>
+        <fieldset id="confidence-picker" class="confidence-picker"><legend>¿Cómo te sientes con tu idea? <span>Opcional</span></legend><button type="button" data-confidence="exploring" aria-pressed="false">Estoy probando</button><button type="button" data-confidence="fairly-sure" aria-pressed="false">Bastante seguro</button><button type="button" data-confidence="sure" aria-pressed="false">Muy seguro</button></fieldset>
+        <div class="answers" id="answers"></div>
+        <div id="visual-aid" tabindex="-1" class="visual-aid" role="region" aria-labelledby="visual-title" aria-describedby="visual-caption" hidden><strong id="visual-title">La misma cantidad entera, distintas partes</strong><div id="fraction-bars"></div><small id="visual-caption">Las dos barras tienen la misma longitud. Observa las divisiones y las partes coloreadas.</small><div id="exploration-lab" class="exploration-lab" role="group" aria-labelledby="lab-title"></div></div>
+        <div class="problem-actions"><button class="help-button" id="hint-button">✧ Necesito una pista</button><button class="quiet-button" id="pause-button">Ⅱ Hacer una pausa</button></div>
+        <div class="learning-note"><span aria-hidden="true">↗</span><span>Tu idea importa tanto como tu elección.</span></div>
+      </section>
+      <section class="tutor-card" aria-labelledby="tutor-title"><div class="tutor-header"><div class="luma-character" aria-hidden="true"><span></span><i></i></div><div><h2 id="tutor-title" tabindex="-1">Pensemos juntos</h2><p id="companion-status">Una pregunta cada vez</p></div><span class="online-dot" aria-hidden="true"></span></div>
+        <div class="conversation" id="conversation" role="log" aria-label="Conversación con Luma" aria-live="polite" aria-relevant="additions text" tabindex="0"></div>
+        <p class="tutor-status" id="tutor-status" role="status" hidden></p>
+        <div class="composer"><button class="review-activity" id="review-activity">↑ Volver a mi elección</button><form id="explanation-form"><label for="explanation">Cuéntame tu idea</label><div id="writing-starters" class="writing-starters" aria-label="Formas de empezar mi explicación"><button type="button" data-starter="He comparado…">He comparado…</button><button type="button" data-starter="Mi pista es…">Mi pista es…</button><button type="button" data-starter="Lo comprobaría…">Lo comprobaría…</button></div><div class="input-wrap"><textarea id="explanation" rows="2" maxlength="600" required placeholder="Creo que… porque…" aria-describedby="input-note"></textarea><button type="submit" id="send-button" aria-label="Enviar mi explicación">↑</button></div><small id="input-note">Puedes cambiar de idea. Eso también es aprender.</small></form><button class="next-button" id="next-button" hidden>Siguiente descubrimiento <span>→</span></button><button class="next-button" id="resume-button" hidden>Seguir a mi ritmo <span>→</span></button><button class="next-button" id="restart-button" hidden>Explorar otra vez <span>↻</span></button></div>
+      </section>
+    </div>
+    <div class="footer-note"><span>✧ No hay cronómetro. Hay tiempo para pensar.</span><button id="progress-button">Ver mi recorrido ↗</button></div>
+    <section id="completion-screen" class="completion-screen" hidden tabindex="-1"><div class="completion-symbol" aria-hidden="true">✦</div><div class="eyebrow">UN PASO MÁS EN TU CAMINO</div><h2>Has dado espacio a tus ideas.</h2><p>Elegir, comprobar y cambiar de idea también es avanzar.</p><div id="idea-passport" class="idea-passport"></div><div id="completion-stats" class="summary-metrics"></div><div class="completion-actions"><button class="primary-button" id="choose-next">Descubrir otro recorrido →</button><button class="secondary-button" id="completion-progress">Mirar mi recorrido</button></div></section>
+    </section>
+    <section id="family-view" hidden aria-labelledby="family-title"><div class="welcome family-welcome"><div><div class="eyebrow">PARA FAMILIAS Y EDUCADORES</div><h1 id="family-title" tabindex="-1">Una mirada a cómo piensa<span>.</span></h1><p>Observaciones del recorrido, con espacio para conversar.</p></div><button class="secondary-button" id="family-settings">Opciones de guardado</button></div><p id="family-status" class="family-status" role="status" hidden>Estoy recuperando el recorrido…</p><div id="family-overview"></div><section id="family-pending" class="pending-adventures" aria-label="Aventuras guardadas pendientes" hidden></section><div class="family-context"><span aria-hidden="true">✧</span><div><h3>Un buen punto de partida para hablar</h3><p>«¿Qué te hizo cambiar de idea?» · «¿Cómo lo comprobarías de otra forma?» · «¿Qué pista te ayudó más?»</p><small>Estos registros describen la práctica. No son una evaluación validada de comprensión ni de aprendizaje duradero.</small></div></div><div class="section-title"><div><div class="eyebrow">LO QUE HABÉIS EXPLORADO</div><h2>El recorrido, paso a paso.</h2></div><button id="export-progress" class="secondary-button">Exportar resumen ↓</button></div><div id="family-history"></div><p class="storage-note" id="storage-note"></p></section>
+    <p class="storage-note" id="settings-status" role="status" hidden></p>
+    <div class="error" id="error" role="alert" tabindex="-1" hidden></div>
+    <footer class="prototype-note">Beta local · Contenido pendiente de revisión pedagógica · <span id="mode-label">Guía local</span></footer>
+  </main>
+  <dialog id="adult-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><div><div class="eyebrow">PARA FAMILIAS Y EDUCADORES</div><h2 id="dialog-title">Una mirada al recorrido</h2></div><button class="close-button" id="close-dialog" aria-label="Cerrar">×</button></div><div id="dialog-content"></div><p class="error" id="dialog-error" role="alert" tabindex="-1" hidden></p></dialog>
+</body>
+</html>

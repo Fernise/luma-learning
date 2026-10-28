@@ -1,0 +1,41 @@
+{
+  "name": "luma-learning-app",
+  "version": "0.9.9",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env server.js",
+    "start": "node --env-file-if-exists=.env server.js",
+    "test": "node --test",
+    "test:ai:live": "node --env-file=.env scripts/check-ai-live.js",
+    "eval:ai:live": "node --env-file=.env scripts/evaluate-ai.js",
+    "eval:fresh": "node scripts/evaluate-fresh.js",
+    "eval:variations": "node scripts/evaluate-variations.js",
+    "eval:variations:live": "node --env-file=.env scripts/evaluate-variations.js --live",
+    "review:educator": "node scripts/build-educator-review.js",
+    "preview:educator": "node scripts/preview-educator.js",
+    "eval:conversations": "node scripts/evaluate-conversations.js",
+    "eval:dialogue": "node scripts/evaluate-conversations.js --expanded",
+    "eval:adaptive": "node scripts/evaluate-adaptive.js",
+    "eval:adaptive:live": "node --env-file=.env scripts/evaluate-adaptive.js --live",
+    "preview:mobile": "node scripts/preview-mobile.js",
+    "preview:adaptive": "node scripts/preview-adaptive-fixture.js",
+    "eval:dialogue:new": "node scripts/evaluate-conversations.js --fresh-dialogue",
+    "eval:adaptive:novel": "node scripts/evaluate-adaptive.js --novel",
+    "eval:expeditions": "node scripts/evaluate-expeditions.js",
+    "eval:expeditions:live": "node --env-file=.env scripts/evaluate-expeditions.js --live",
+    "eval:language:new": "node scripts/evaluate-heldout-october.js",
+    "eval:questions": "node scripts/evaluate-question-review.js",
+    "replay:questions": "node scripts/replay-expedition-questions.js",
+    "eval:dialogue:difficult": "node scripts/evaluate-difficult-dialogue.js",
+    "eval:observations": "node scripts/evaluate-observation-questions.js",
+    "eval:language:additional": "node scripts/evaluate-additional-language.js",
+    "eval:support:specific": "node scripts/evaluate-specific-support.js",
+    "review:provider": "node scripts/review-provider-current.js",
+    "review:provider:live": "node --env-file=.env scripts/review-provider-current.js --live",
+    "pretest": "node scripts/build-educator-review.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

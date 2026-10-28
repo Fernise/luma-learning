@@ -1,0 +1,11 @@
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {difficultDialogueCases} from '../lib/difficult-dialogue-cases.js';
+import {evaluateDifficultConversation} from '../lib/difficult-dialogue-evaluation.js';
+const baseline=process.argv.includes('--baseline'),results=[];
+for(const permissive of [false,true])for(const spec of difficultDialogueCases)results.push(await evaluateDifficultConversation(spec,{permissive}));
+const summary={conversations:difficultDialogueCases.length,authoredTurns:difficultDialogueCases.reduce((n,c)=>n+c.turns.length,0),executions:results.length,passed:results.filter(r=>r.passed).length,failed:results.filter(r=>!r.passed).map(r=>r.mode+':'+r.id),realProviderCalls:0};
+const dir=new URL('../artifacts/dialogos-dificiles-1024/',import.meta.url);await mkdir(dir,{recursive:true});
+const implementation=createHash('sha256');for(const name of ['tutor','reasoning','ai-guard','learner-language','language-relations','some-inference'])implementation.update(await readFile(new URL('../lib/'+name+'.js',import.meta.url)));
+await writeFile(new URL(baseline?'antes.json':'despues.json',dir),JSON.stringify({date:new Date().toISOString(),version:JSON.parse(await readFile(new URL('../package.json',import.meta.url))).version,corpusHash:createHash('sha256').update(JSON.stringify(difficultDialogueCases)).digest('hex'),implementationHash:implementation.digest('hex'),scope:'Authored fictitious conversations fixed before corrections; local and deliberately permissive fixtures, no independent child or provider accuracy.',summary,results},null,2)+'\n',baseline?{flag:'wx'}:undefined);
+console.log(JSON.stringify(summary));if(summary.failed.length)process.exitCode=1;

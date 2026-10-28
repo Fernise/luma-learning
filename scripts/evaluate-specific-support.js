@@ -1,0 +1,10 @@
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {specificSupportCases} from '../lib/specific-support-cases.js';
+import {evaluateSpecificSupport} from '../lib/specific-support-evaluation.js';
+const results=[];
+for(const wrongChoice of [false,true])for(const spec of specificSupportCases)results.push(await evaluateSpecificSupport(spec,{wrongChoice}));
+const summary={cases:specificSupportCases.length,executions:results.length,passed:results.filter(r=>r.passed).length,failed:results.filter(r=>!r.passed).map(r=>r.id+':'+r.wrongChoice),realProviderCalls:0};
+const dir=new URL('../artifacts/seguimiento-fiabilidad-1025/',import.meta.url);await mkdir(dir,{recursive:true});
+await writeFile(new URL(process.argv.includes('--baseline')?'apoyos-antes.json':'apoyos-despues.json',dir),JSON.stringify({version:JSON.parse(await readFile(new URL('../package.json',import.meta.url))).version,corpusHash:createHash('sha256').update(JSON.stringify(specificSupportCases)).digest('hex'),summary,results},null,2)+'\n',process.argv.includes('--baseline')?{flag:'wx'}:undefined);
+console.log(JSON.stringify(summary));if(summary.failed.length)process.exitCode=1;

@@ -1,0 +1,10 @@
+import {mkdir,readFile,writeFile} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import {observationQuestionCases} from '../lib/observation-question-cases.js';
+import {evaluateObservationQuestion} from '../lib/observation-question-evaluation.js';
+const baseline=process.argv.includes('--baseline'),results=[];
+for(const spec of observationQuestionCases)results.push(await evaluateObservationQuestion(spec));
+const summary={cases:results.length,passed:results.filter(r=>r.passed).length,failed:results.filter(r=>!r.passed).map(r=>r.id),realProviderCalls:0};
+const dir=new URL('../artifacts/preguntas-apoyo-1024/',import.meta.url);await mkdir(dir,{recursive:true});
+await writeFile(new URL(baseline?'antes.json':'despues.json',dir),JSON.stringify({date:new Date().toISOString(),scope:'Fixed authored process-question cases; local and simulated output only, no pedagogical efficacy claim.',corpusHash:createHash('sha256').update(JSON.stringify(observationQuestionCases)).digest('hex'),summary,results},null,2)+'\n',baseline?{flag:'wx'}:undefined);
+console.log(JSON.stringify(summary));if(summary.failed.length)process.exitCode=1;
