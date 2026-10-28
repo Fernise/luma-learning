@@ -6,6 +6,12 @@
 
 A Spanish-language local learning app with 36 fraction, pattern and logic activities, adaptive tutoring and optional AI interpretation.
 
+## Preview
+
+![A fraction activity and the local tutoring panel](docs/assets/fraction-activity.png)
+
+Captured from a local, in-memory session using an authored exercise. Optional AI and progress saving were disabled; no learner records are shown.
+
 [![CI](https://github.com/Fernise/luma-learning/actions/workflows/ci.yml/badge.svg)](https://github.com/Fernise/luma-learning/actions/workflows/ci.yml)
 
 **Technology:** Node.js · Built-in SQLite · Browser JavaScript · Optional AI
@@ -21,15 +27,24 @@ For Spanish-speaking children aged 8–11 and families exploring fractions, patt
 - A local reasoning engine; optional AI interpretation cannot override incorrect answers.
 - Opt-in local progress, resume/export/delete controls and adult review material.
 
+## Screenshots
+
+![Luma home screen with the three learning islands](docs/assets/preview.png)
+
+The home screen introduces fractions, patterns and logic. The interface is in Spanish.
+
+<details>
+<summary>Mobile view</summary>
+
+<img src="docs/assets/mobile-activity.png" width="390" alt="Luma fraction activity on a mobile screen" />
+
+An authored exercise using the local tutor, with no learner records.
+
+</details>
+
 ## Project status
 
 Local beta 0.9.9, intended for adult evaluation before use with children. Authored age/difficulty bands and pedagogical effectiveness are provisional. It records practice behavior rather than a validated measure of learning.
-
-## Preview
-
-![Local luma-learning interface](docs/assets/preview.png)
-
-Captured from a local source-only preview without real accounts or private records.
 
 ## Quick start
 
