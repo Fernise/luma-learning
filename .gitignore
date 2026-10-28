@@ -72,3 +72,9 @@ coverage/
 /docs/revision/
 /docs/revision-36.html
 /docs/catalogo-revision.md
+
+# Internal operator procedures and launch records stay private.
+internal/
+.private/
+**/*runbook*
+deploy/vps/

@@ -1,4 +1,6 @@
-![Luma — A space to think, explain and discover.](docs/assets/banner.svg)
+<p align="center">
+  <img src="docs/assets/project-logo.svg" width="280" alt="Luma project logo" />
+</p>
 
 # Luma
 
@@ -6,12 +8,17 @@ A space to think, explain and discover.
 
 [![CI](https://github.com/Fernise/luma-learning/actions/workflows/ci.yml/badge.svg)](https://github.com/Fernise/luma-learning/actions/workflows/ci.yml)
 [![License: reserved](https://img.shields.io/badge/license-All_rights_reserved-52646b)](LICENSE)
+[![Built with Codex](https://img.shields.io/badge/Built_with-Codex-5B5BD6)](#development-approach)
 
 A Spanish-language local learning app with 36 fraction, pattern and logic activities, adaptive tutoring and optional AI interpretation.
 
 **Technology:** Node.js · Built-in SQLite · Browser JavaScript · Optional AI
 
+[Overview](#what-it-does) · [Quick start](#quick-start) · [Architecture](docs/ARCHITECTURE.md) · [Verification](docs/VERIFICATION.md)
+
 ## What it does
+
+For Spanish-speaking children aged 8–11 and families exploring fractions, patterns and logic.
 
 - Three illustrated learning islands and 36 authored activities.
 - Adaptive expeditions with progressive support and a final new-context problem.
@@ -70,6 +77,12 @@ The `pretest` step regenerates fictional educator review material from source. T
 - [Security policy](SECURITY.md)
 - [Contribution guidance](CONTRIBUTING.md)
 - [Third-party notices](THIRD_PARTY_NOTICES.md)
+
+## Development approach
+
+Created and directed by **[Fernando · @Fernise](https://github.com/Fernise)** using agentic programming with **OpenAI Codex**. Product direction, requirements and final decisions are the author’s; coding agents contributed to implementation, refactoring, documentation and testing.
+
+See the [verification record](docs/VERIFICATION.md) for completed checks and known limitations.
 
 ## License
 

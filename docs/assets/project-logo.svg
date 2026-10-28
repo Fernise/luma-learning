@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 100" role="img" aria-label="Luma">
+<title>Luma</title><rect width="280" height="100" rx="20" fill="#fffaf1"/>
+<g transform="translate(27 25) rotate(-7 25 25)"><path d="M14 0H36Q50 0 50 14V36Q50 50 36 50H5Q0 50 0 45V14Q0 0 14 0Z" fill="#5261cd"/><path d="M25 7Q27 22 43 25Q27 28 25 43Q22 28 7 25Q22 22 25 7Z" fill="#fff3bf"/></g>
+<text x="93" y="66" fill="#29376b" font-family="Arial,sans-serif" font-size="56" font-weight="700" letter-spacing="-3">luma<tspan fill="#c87829">.</tspan></text>
+</svg>
